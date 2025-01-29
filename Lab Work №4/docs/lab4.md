@@ -113,6 +113,7 @@ Task not found
 1. `200 OK`: Тело ответа: Данные обновленной задачи. Пример:
 ```json
 {
+   "id": 1,
    "name":"new mom",
    "statement": null,
    "timeLimit": null,
