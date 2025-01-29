@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/scripts/1_create_schema.sql
+  - include:
+      file: db/changelog/scripts/2_init_test_data.sql
