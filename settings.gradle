@@ -1,0 +1,4 @@
+rootProject.name = 'hse-software-systems-architecture-design'
+include 'export-service'
+include 'generator-service'
+include 'web-backend'

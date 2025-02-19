@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.2' apply false
+    id 'io.spring.dependency-management' version '1.1.0' apply false
+}
+
+group = 'com.fin'
+version = '1.0-SNAPSHOT'
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    sourceCompatibility = '21'
+    targetCompatibility = '21'
+
+    dependencies {
+        // Web (общий для всех сервисов)
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+        // Database
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation 'org.postgresql:postgresql:42.7.4'
+
+        // Lombok
+        compileOnly 'org.projectlombok:lombok:1.18.32'
+        annotationProcessor 'org.projectlombok:lombok:1.18.32'
+
+
+        // Test dependencies
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+        testImplementation 'org.projectlombok:lombok:1.18.32'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
+        testImplementation 'org.testcontainers:junit-jupiter:1.18.0'
+        testImplementation 'org.testcontainers:postgresql:1.18.0'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
